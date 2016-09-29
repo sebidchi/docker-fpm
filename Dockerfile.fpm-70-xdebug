@@ -29,7 +29,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 && sed -i 's@expose_php = On@expose_php = Off@' /etc/php7/php.ini\
 && ssh-keygen -A \
 && echo 'root:root' | chpasswd \
-&& sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/ssh_config \
+&& sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
 && sed -i 's@listen = 127.0.0.1:9000@listen = 9000@' /etc/php7/php-fpm.d/www.conf \
 && sed -i 's@user = nobody@user = root@' /etc/php7/php-fpm.d/www.conf \
 && sed -i 's@group = nobody@group = root@' /etc/php7/php-fpm.d/www.conf
