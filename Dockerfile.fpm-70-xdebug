@@ -35,6 +35,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 && sed -i 's@group = nobody@group = root@' /etc/php7/php-fpm.d/www.conf
 
 COPY conf.d/*   /etc/php7/conf.d/
+COPY tools/*  /usr/local/bin/
 
 
 EXPOSE 22
